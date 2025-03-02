@@ -22,7 +22,11 @@ const socialLinks = [
 
 ];
 
-export default function Footer() {
+interface FooterProps {
+  variant?: 'tr' | 'eng';
+}
+
+export default function Footer({ variant = 'tr' }: FooterProps) {
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
     e.preventDefault();
     const section = document.getElementById(sectionId);
@@ -30,6 +34,33 @@ export default function Footer() {
       section.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  const texts = {
+    tr: {
+      projectTitle: "Hayalinizdeki Projeyi",
+      projectSubtitle: "Birlikte Gerçekleştirelim",
+      description: "Yapay zeka destekli modern web uygulamaları geliştirmek için buradayım. Projenizi birlikte hayata geçirelim.",
+      social: "Sosyal",
+      pages: "Sayfalar",
+      about: "Hakkımda",
+      projects: "Projeler",
+      rights: "Tüm hakları ulu ortadadır.",
+      languageSwitch: "English"
+    },
+    eng: {
+      projectTitle: "Let's Build Your",
+      projectSubtitle: "Dream Project Together",
+      description: "I'm here to develop AI-powered modern web applications. Let's bring your project to life together.",
+      social: "Social",
+      pages: "Pages",
+      about: "About",
+      projects: "Projects",
+      rights: "All rights reserved",
+      languageSwitch: "Türkçe"
+    }
+  };
+
+  const t = texts[variant];
 
   return (
     <footer className="py-20 border-t border-gray-200 bg-white">
@@ -44,8 +75,8 @@ export default function Footer() {
                 viewport={{ once: true }}
                 className="text-3xl font-bold text-gray-800"
               >
-                Hayalinizdeki Projeyi<br />
-                <span className="text-[#698f60]">Birlikte Gerçekleştirelim</span>
+                {t.projectTitle}<br />
+                <span className="text-[#698f60]">{t.projectSubtitle}</span>
               </motion.h3>
             </div>
 
@@ -89,8 +120,7 @@ export default function Footer() {
               transition={{ delay: 0.3 }}
               className="text-gray-600"
             >
-              Yapay zeka destekli modern web uygulamaları geliştirmek için buradayım.
-              Projenizi birlikte hayata geçirelim.
+              {t.description}
             </motion.p>
           </div>
 
@@ -98,7 +128,7 @@ export default function Footer() {
           <div className="grid grid-cols-2 gap-8">
             <div>
               <h4 className="text-sm font-semibold uppercase tracking-wider text-gray-900 mb-4">
-                Sosyal
+                {t.social}
               </h4>
               <ul className="space-y-3">
                 {socialLinks.map((link) => (
@@ -120,7 +150,7 @@ export default function Footer() {
             </div>
             <div>
               <h4 className="text-sm font-semibold uppercase tracking-wider text-gray-900 mb-4">
-                Sayfalar
+                {t.pages}
               </h4>
               <ul className="space-y-3">
                 <li>
@@ -129,7 +159,7 @@ export default function Footer() {
                     onClick={(e) => scrollToSection(e, 'about')}
                     className="text-gray-600 hover:text-[#698f60] transition-colors"
                   >
-                    Hakkımda
+                    {t.about}
                   </a>
                 </li>
                 <li>
@@ -138,7 +168,7 @@ export default function Footer() {
                     onClick={(e) => scrollToSection(e, 'projects')}
                     className="text-gray-600 hover:text-[#698f60] transition-colors"
                   >
-                    Projeler
+                    {t.projects}
                   </a>
                 </li>
               </ul>
@@ -148,8 +178,18 @@ export default function Footer() {
 
         <div className="mt-16 pt-8 border-t border-gray-200">
           <p className="text-center text-gray-500 text-sm">
-            © {new Date().getFullYear()} Aybars Göktuğ AYAN. Tüm hakları ulu ortadadır.
+            {t.rights}
           </p>
+        </div>
+
+        {/* Add language switcher */}
+        <div className="absolute top-4 right-4">
+          <a 
+            href={variant === 'tr' ? '/eng' : '/'} 
+            className="text-gray-600 hover:text-[#698f60] transition-colors"
+          >
+            {t.languageSwitch}
+          </a>
         </div>
       </div>
     </footer>
