@@ -84,6 +84,13 @@ const projects: Project[] = [
     "link": "https://github.com/aybarsayan/konusma-olustur-ai"
   },
   {
+    "title": "Ai4Sports-gpt",
+    "description": "Aivisiontech için danışmanlık kapsamında geliştirilen bu backend, gelen kas bilgilerine göre RAG sistemini kullanarak, sporcuların spor türüne göre hangi egzersizi yapmaları gerektiğini ve hangisini yapmamaları gerektiğini belirliyor. OpenAI API ve Express kullanılarak oluşturulan bu API, aktif olarak hizmet vermektedir ve JavaScript ile yazılmıştır.",
+    "videoId": "NA-r79om9WE",
+    "techStack": ["Express", "OpenAI API", "RAG", "JavaScript"],
+    "link": "https://www.aivisiontech.net/"
+  },  
+  {
     "title": "Medaş Hackathon AI Chatbot ile Birincilik",
     "description": "Konya Elektrik Dağıtım Şirketi'nin düzenlediği 6 saatlik Hackathon'da, Medas sistemlerine entegre bir chatbot geliştirdik. Chatbot sayesinde arıza kaydı açma, planlı kesintileri konum bazında görüntüleme, fatura hesaplama ve diğer birçok işlemi gerçekleştirebiliyorsunuz. Proje, 4 kişilik takımımız tarafından sıfırdan hayata geçirildi; ben takım lideri ve ana yazılımcı olarak görev aldım. Sunum sonunda 20 takım arasından 1. seçilerek 60.000 TL ödül kazandık.",
     "videoId": "G6ahnoJVMLE",
